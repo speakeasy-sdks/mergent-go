@@ -13,17 +13,33 @@ import (
 func main() {
     s := mergent.New(
         mergent.WithSecurity(shared.Security{
-            Bearer: "Bearer YOUR_BEARER_TOKEN_HERE",
+            APIKey: "Bearer YOUR_BEARER_TOKEN_HERE",
         }),
     )
 
+    req := shared.TaskNewInput{
+        Delay: "60s",
+        Name: "mytask",
+        Queue: "process1",
+        Request: shared.Request{
+            Body: "Body String",
+            Headers: map[string]interface{}{
+                "deserunt": "porro",
+                "nulla": "id",
+                "vero": "perspiciatis",
+            },
+            URL: "http://example.com",
+        },
+        ScheduledFor: "2021-10-01T15:53:05Z",
+    }
+
     ctx := context.Background()
-    res, err := s.Tasks.List(ctx)
+    res, err := s.Tasks.Create(ctx, req)
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.Tasks != nil {
+    if res.Task != nil {
         // handle response
     }
 }

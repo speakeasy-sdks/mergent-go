@@ -11,6 +11,8 @@ type ListTasksResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
+	// Not Found
+	Error *shared.Error
 	// OK
 	Tasks []shared.TaskOutput
 }
