@@ -1,9 +1,14 @@
 configVersion: 1.0.0
+management:
+  docChecksum: 5d6d10d547b2a03b9f8e88a6ee2aa07c
+  docVersion: v2
+  speakeasyVersion: 1.19.2
+  generationVersion: 2.16.5
 generation:
   telemetryEnabled: false
   sdkClassName: SDK
   sdkFlattening: false
   singleTagPerOp: false
 go:
-  version: ""
+  version: 1.0.0
   packageName: github.com/speakeasy-sdks/mergent-go
