@@ -3,5 +3,5 @@
 package shared
 
 type Security struct {
-	Bearer string `security:"scheme,type=http,subtype=bearer,name=Authorization"`
+	APIKey string `security:"scheme,type=http,subtype=bearer,name=Authorization"`
 }

@@ -33,14 +33,14 @@ func newTasks(defaultClient, securityClient HTTPClient, serverURL, language, sdk
 	}
 }
 
-// BatchCreateTasks - Batch Create Tasks (Beta)
+// BatchCreate - Batch Create Tasks (Beta)
 // A maximum of 100 Tasks are accepted per request.
 //
 // This operation is atomic: it will succeed for all Tasks or fail for all
 // Tasks; there is no partial success.
 //
 // This endpoint is in beta and may change at any time without notice.
-func (s *tasks) BatchCreateTasks(ctx context.Context, request []shared.TaskNewInput) (*operations.BatchCreateTasksResponse, error) {
+func (s *tasks) BatchCreate(ctx context.Context, request []shared.TaskNewInput) (*operations.BatchCreateTasksResponse, error) {
 	baseURL := s.serverURL
 	url := strings.TrimSuffix(baseURL, "/") + "/tasks/batch-create"
 
@@ -109,14 +109,14 @@ func (s *tasks) BatchCreateTasks(ctx context.Context, request []shared.TaskNewIn
 	return res, nil
 }
 
-// BatchDeleteTasks - Batch Delete Tasks (Beta)
+// BatchDelete - Batch Delete Tasks (Beta)
 // A maximum of 100 Task IDs are accepted per request.
 //
 // This operation is atomic: it will succeed for all Tasks or fail for all
 // Tasks; there is no partial success.
 //
 // This endpoint is in beta and may change at any time without notice.
-func (s *tasks) BatchDeleteTasks(ctx context.Context, request []string) (*operations.BatchDeleteTasksResponse, error) {
+func (s *tasks) BatchDelete(ctx context.Context, request []string) (*operations.BatchDeleteTasksResponse, error) {
 	baseURL := s.serverURL
 	url := strings.TrimSuffix(baseURL, "/") + "/tasks/batch-delete"
 
@@ -375,6 +375,16 @@ func (s *tasks) List(ctx context.Context) (*operations.ListTasksResponse, error)
 			}
 
 			res.Tasks = out
+		}
+	case httpRes.StatusCode == 404:
+		switch {
+		case utils.MatchContentType(contentType, `application/json`):
+			var out *shared.Error
+			if err := utils.UnmarshalJsonFromResponseBody(httpRes.Body, &out); err != nil {
+				return nil, err
+			}
+
+			res.Error = out
 		}
 	}
 

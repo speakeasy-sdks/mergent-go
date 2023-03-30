@@ -15,3 +15,11 @@ Based on:
 - Speakeasy CLI 1.19.2 (2.16.5) https://github.com/speakeasy-api/speakeasy
 ### Releases
 - [Go v0.0.1] https://github.com/speakeasy-sdks/mergent-go/releases/tag/v0.0.1 - .
+
+## 2023-03-30 08:44:16
+### Changes
+Based on:
+- OpenAPI Doc v2 ./openapi/openapi.yaml
+- Speakeasy CLI 1.19.2 (2.16.5) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [Go v0.0.2] https://github.com/speakeasy-sdks/mergent-go/releases/tag/v0.0.2 - .
