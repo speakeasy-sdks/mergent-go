@@ -7,14 +7,10 @@ import (
 	"net/http"
 )
 
-type UpdateTaskPathParams struct {
+type UpdateTaskRequest struct {
+	TaskInput shared.TaskInput `request:"mediaType=application/json"`
 	// Task ID
 	TaskID string `pathParam:"style=simple,explode=false,name=task_id"`
-}
-
-type UpdateTaskRequest struct {
-	PathParams UpdateTaskPathParams
-	Request    shared.TaskInput `request:"mediaType=application/json"`
 }
 
 type UpdateTaskResponse struct {

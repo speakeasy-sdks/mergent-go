@@ -7,13 +7,9 @@ import (
 	"net/http"
 )
 
-type GetScheduleTasksPathParams struct {
+type GetScheduleTasksRequest struct {
 	// Schedule ID
 	ScheduleID string `pathParam:"style=simple,explode=false,name=schedule_id"`
-}
-
-type GetScheduleTasksRequest struct {
-	PathParams GetScheduleTasksPathParams
 }
 
 type GetScheduleTasksResponse struct {

@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type BatchCreateTasksRequest struct {
-	Request []shared.TaskNewInput `request:"mediaType=application/json"`
-}
-
 type BatchCreateTasksResponse struct {
 	ContentType string
 	StatusCode  int

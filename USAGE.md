@@ -11,17 +11,14 @@ import (
 )
 
 func main() {
-    s := sdk.New(
-        sdk.WithSecurity(shared.Security{
-            Basic: &shared.SchemeBasic{
-                Password: "YOUR_PASSWORD_HERE",
-                Username: "YOUR_USERNAME_HERE",
-            },
+    s := mergent.New(
+        mergent.WithSecurity(shared.Security{
+            Bearer: "Bearer YOUR_BEARER_TOKEN_HERE",
         }),
     )
 
     ctx := context.Background()
-    res, err := s.Tasks.ListTasks(ctx)
+    res, err := s.Tasks.List(ctx)
     if err != nil {
         log.Fatal(err)
     }
