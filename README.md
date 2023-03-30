@@ -1,4 +1,15 @@
-# github.com/speakeasy-sdks/mergent-go
+<div align="center">
+    <picture>
+        <source srcset="https://user-images.githubusercontent.com/6267663/228782760-eae443cd-8197-4667-91f5-656d90633db1.svg" media="(prefers-color-scheme: dark)" width="100">
+        <img src="https://user-images.githubusercontent.com/6267663/228782746-c33cbcc8-4767-42c8-9a50-af6552703414.svg" width="100">
+    </picture>
+    <h1>Mergent Go SDK</h1>
+   <p>Developer infrastructure for internal tools</p>
+   <a href="https://docs.mergent.co/"><img src="https://img.shields.io/static/v1?label=Docs&message=API Ref&color=000&style=for-the-badge" /></a>
+   <a href="https://github.com/speakeasy-sdks/mergent-go/actions"><img src="https://img.shields.io/github/actions/workflow/status/speakeasy-sdks/mergent-go/speakeasy_sdk_generation.yml?style=for-the-badge" /></a>
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge" /></a>
+  <a href="https://github.com/speakeasy-sdks/mergent-go/releases"><img src="https://img.shields.io/github/v/release/speakeasy-sdks/mergent-go?sort=semver&style=for-the-badge" /></a>
+</div>
 
 <!-- Start SDK Installation -->
 ## SDK Installation
