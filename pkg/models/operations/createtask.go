@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type CreateTaskRequest struct {
-	Request shared.TaskNewInput `request:"mediaType=application/json"`
-}
-
 type CreateTaskResponse struct {
 	ContentType string
 	StatusCode  int

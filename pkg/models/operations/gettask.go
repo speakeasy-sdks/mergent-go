@@ -7,13 +7,9 @@ import (
 	"net/http"
 )
 
-type GetTaskPathParams struct {
+type GetTaskRequest struct {
 	// Task ID
 	TaskID string `pathParam:"style=simple,explode=false,name=task_id"`
-}
-
-type GetTaskRequest struct {
-	PathParams GetTaskPathParams
 }
 
 type GetTaskResponse struct {

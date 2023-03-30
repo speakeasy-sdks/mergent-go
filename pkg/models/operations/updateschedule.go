@@ -7,14 +7,10 @@ import (
 	"net/http"
 )
 
-type UpdateSchedulePathParams struct {
+type UpdateScheduleRequest struct {
+	ScheduleInput shared.ScheduleInput `request:"mediaType=application/json"`
 	// Schedule ID
 	ScheduleID string `pathParam:"style=simple,explode=false,name=schedule_id"`
-}
-
-type UpdateScheduleRequest struct {
-	PathParams UpdateSchedulePathParams
-	Request    shared.ScheduleInput `request:"mediaType=application/json"`
 }
 
 type UpdateScheduleResponse struct {

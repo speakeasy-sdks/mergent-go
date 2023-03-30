@@ -7,13 +7,9 @@ import (
 	"net/http"
 )
 
-type DeleteTaskPathParams struct {
+type DeleteTaskRequest struct {
 	// Task ID
 	TaskID string `pathParam:"style=simple,explode=false,name=task_id"`
-}
-
-type DeleteTaskRequest struct {
-	PathParams DeleteTaskPathParams
 }
 
 type DeleteTaskResponse struct {

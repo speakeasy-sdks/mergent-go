@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type CreateScheduleRequest struct {
-	Request shared.ScheduleNewInput `request:"mediaType=application/json"`
-}
-
 type CreateScheduleResponse struct {
 	ContentType string
 	StatusCode  int

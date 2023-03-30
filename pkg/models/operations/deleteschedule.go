@@ -7,13 +7,9 @@ import (
 	"net/http"
 )
 
-type DeleteSchedulePathParams struct {
+type DeleteScheduleRequest struct {
 	// Schedule ID
 	ScheduleID string `pathParam:"style=simple,explode=false,name=schedule_id"`
-}
-
-type DeleteScheduleRequest struct {
-	PathParams DeleteSchedulePathParams
 }
 
 type DeleteScheduleResponse struct {

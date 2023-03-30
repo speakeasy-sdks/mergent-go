@@ -2,16 +2,6 @@
 
 package shared
 
-type SchemeBasic struct {
-	Password string `security:"name=password"`
-	Username string `security:"name=username"`
-}
-
-type SchemeBearer struct {
-	Authorization string `security:"name=Authorization"`
-}
-
 type Security struct {
-	Basic  *SchemeBasic  `security:"scheme,type=http,subtype=basic"`
-	Bearer *SchemeBearer `security:"scheme,type=http,subtype=bearer"`
+	Bearer string `security:"scheme,type=http,subtype=bearer,name=Authorization"`
 }

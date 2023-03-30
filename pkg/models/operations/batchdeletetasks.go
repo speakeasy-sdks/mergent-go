@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type BatchDeleteTasksRequest struct {
-	Request []string `request:"mediaType=application/json"`
-}
-
 type BatchDeleteTasksResponse struct {
 	ContentType string
 	StatusCode  int
