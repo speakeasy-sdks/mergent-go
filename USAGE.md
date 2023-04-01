@@ -24,9 +24,9 @@ func main() {
         Request: shared.Request{
             Body: "Body String",
             Headers: map[string]interface{}{
-                "deserunt": "porro",
-                "nulla": "id",
-                "vero": "perspiciatis",
+                "provident": "distinctio",
+                "quibusdam": "unde",
+                "nulla": "corrupti",
             },
             URL: "http://example.com",
         },
