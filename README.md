@@ -46,9 +46,9 @@ func main() {
         Request: shared.Request{
             Body: "Body String",
             Headers: map[string]interface{}{
-                "deserunt": "porro",
-                "nulla": "id",
-                "vero": "perspiciatis",
+                "provident": "distinctio",
+                "quibusdam": "unde",
+                "nulla": "corrupti",
             },
             URL: "http://example.com",
         },
@@ -69,7 +69,7 @@ func main() {
 <!-- End SDK Example Usage -->
 
 <!-- Start SDK Available Operations -->
-## SDK Available Operations
+## Available Resources and Operations
 
 
 ### Schedules
