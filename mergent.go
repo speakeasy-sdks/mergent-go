@@ -78,8 +78,8 @@ func WithSecurity(security shared.Security) SDKOption {
 func New(opts ...SDKOption) *Mergent {
 	sdk := &Mergent{
 		_language:   "go",
-		_sdkVersion: "0.0.3",
-		_genVersion: "2.16.7",
+		_sdkVersion: "0.1.0",
+		_genVersion: "2.17.9",
 	}
 	for _, opt := range opts {
 		opt(sdk)

@@ -39,6 +39,7 @@ func main() {
         }),
     )
 
+    ctx := context.Background()    
     req := shared.TaskNewInput{
         Delay: "60s",
         Name: "mytask",
@@ -55,7 +56,6 @@ func main() {
         ScheduledFor: "2021-10-01T15:53:05Z",
     }
 
-    ctx := context.Background()
     res, err := s.Tasks.Create(ctx, req)
     if err != nil {
         log.Fatal(err)
