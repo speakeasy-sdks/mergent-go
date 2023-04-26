@@ -100,7 +100,10 @@ func (s *schedules) Create(ctx context.Context, request shared.ScheduleNewInput)
 // Delete - Delete Schedule
 func (s *schedules) Delete(ctx context.Context, request operations.DeleteScheduleRequest) (*operations.DeleteScheduleResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/schedules/{schedule_id}", request, nil)
+	url, err := utils.GenerateURL(ctx, baseURL, "/schedules/{schedule_id}", request, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
 
 	req, err := http.NewRequestWithContext(ctx, "DELETE", url, nil)
 	if err != nil {
@@ -145,7 +148,10 @@ func (s *schedules) Delete(ctx context.Context, request operations.DeleteSchedul
 // Get - Get Schedule
 func (s *schedules) Get(ctx context.Context, request operations.GetScheduleRequest) (*operations.GetScheduleResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/schedules/{schedule_id}", request, nil)
+	url, err := utils.GenerateURL(ctx, baseURL, "/schedules/{schedule_id}", request, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
 
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {
@@ -199,7 +205,10 @@ func (s *schedules) Get(ctx context.Context, request operations.GetScheduleReque
 // GetTasks - Get Schedule Tasks
 func (s *schedules) GetTasks(ctx context.Context, request operations.GetScheduleTasksRequest) (*operations.GetScheduleTasksResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/schedules/{schedule_id}/tasks", request, nil)
+	url, err := utils.GenerateURL(ctx, baseURL, "/schedules/{schedule_id}/tasks", request, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
 
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {
@@ -297,7 +306,10 @@ func (s *schedules) List(ctx context.Context) (*operations.ListSchedulesResponse
 // Update - Update Schedule
 func (s *schedules) Update(ctx context.Context, request operations.UpdateScheduleRequest) (*operations.UpdateScheduleResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/schedules/{schedule_id}", request, nil)
+	url, err := utils.GenerateURL(ctx, baseURL, "/schedules/{schedule_id}", request, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
 
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, "ScheduleInput", "json")
 	if err != nil {

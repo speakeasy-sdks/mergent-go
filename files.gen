@@ -4,6 +4,7 @@ mergent.go
 go.mod
 go.sum
 pkg/types/date.go
+pkg/types/datetime.go
 pkg/utils/contenttype.go
 pkg/utils/form.go
 pkg/utils/headers.go
@@ -34,4 +35,7 @@ pkg/models/shared/schedulenew.go
 pkg/models/shared/task.go
 pkg/models/shared/tasknew.go
 pkg/models/shared/security.go
+docs/mergent/README.md
+docs/schedules/README.md
+docs/tasks/README.md
 USAGE.md

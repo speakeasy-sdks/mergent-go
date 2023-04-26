@@ -241,7 +241,10 @@ func (s *tasks) Create(ctx context.Context, request shared.TaskNewInput) (*opera
 // Delete - Delete Task
 func (s *tasks) Delete(ctx context.Context, request operations.DeleteTaskRequest) (*operations.DeleteTaskResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/tasks/{task_id}", request, nil)
+	url, err := utils.GenerateURL(ctx, baseURL, "/tasks/{task_id}", request, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
 
 	req, err := http.NewRequestWithContext(ctx, "DELETE", url, nil)
 	if err != nil {
@@ -286,7 +289,10 @@ func (s *tasks) Delete(ctx context.Context, request operations.DeleteTaskRequest
 // Get - Get Task
 func (s *tasks) Get(ctx context.Context, request operations.GetTaskRequest) (*operations.GetTaskResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/tasks/{task_id}", request, nil)
+	url, err := utils.GenerateURL(ctx, baseURL, "/tasks/{task_id}", request, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
 
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {
@@ -395,7 +401,10 @@ func (s *tasks) List(ctx context.Context) (*operations.ListTasksResponse, error)
 // Reschedules a queued Task to be run immediately.
 func (s *tasks) Run(ctx context.Context, request operations.RunTaskRequest) (*operations.RunTaskResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/tasks/{task_id}/run", request, nil)
+	url, err := utils.GenerateURL(ctx, baseURL, "/tasks/{task_id}/run", request, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
 
 	req, err := http.NewRequestWithContext(ctx, "POST", url, nil)
 	if err != nil {
@@ -451,7 +460,10 @@ func (s *tasks) Run(ctx context.Context, request operations.RunTaskRequest) (*op
 // Update - Update Task
 func (s *tasks) Update(ctx context.Context, request operations.UpdateTaskRequest) (*operations.UpdateTaskResponse, error) {
 	baseURL := s.serverURL
-	url := utils.GenerateURL(ctx, baseURL, "/tasks/{task_id}", request, nil)
+	url, err := utils.GenerateURL(ctx, baseURL, "/tasks/{task_id}", request, nil)
+	if err != nil {
+		return nil, fmt.Errorf("error generating URL: %w", err)
+	}
 
 	bodyReader, reqContentType, err := utils.SerializeRequestBody(ctx, request, "TaskInput", "json")
 	if err != nil {

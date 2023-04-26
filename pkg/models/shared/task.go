@@ -44,6 +44,10 @@ const (
 	TaskStatusEnumFailure TaskStatusEnum = "failure"
 )
 
+func (e TaskStatusEnum) ToPointer() *TaskStatusEnum {
+	return &e
+}
+
 func (e *TaskStatusEnum) UnmarshalJSON(data []byte) error {
 	var s string
 	if err := json.Unmarshal(data, &s); err != nil {
