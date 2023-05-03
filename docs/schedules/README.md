@@ -37,8 +37,8 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := shared.ScheduleNewInput{
+    ctx := context.Background()
+    res, err := s.Schedules.Create(ctx, shared.ScheduleNewInput{
         Cron: mergent.String("illum"),
         Description: mergent.String("vel"),
         Dtstart: types.MustTimeFromString("2021-09-16T11:56:06.019Z"),
@@ -54,9 +54,7 @@ func main() {
             URL: "http://example.com",
         },
         Rrule: mergent.String("iusto"),
-    }
-
-    res, err := s.Schedules.Create(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -90,12 +88,10 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.DeleteScheduleRequest{
+    ctx := context.Background()
+    res, err := s.Schedules.Delete(ctx, operations.DeleteScheduleRequest{
         ScheduleID: "96ed151a-05df-4c2d-9f7c-c78ca1ba928f",
-    }
-
-    res, err := s.Schedules.Delete(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -129,12 +125,10 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.GetScheduleRequest{
+    ctx := context.Background()
+    res, err := s.Schedules.Get(ctx, operations.GetScheduleRequest{
         ScheduleID: "c816742c-b739-4205-9293-96fea7596eb1",
-    }
-
-    res, err := s.Schedules.Get(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -168,12 +162,10 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.GetScheduleTasksRequest{
+    ctx := context.Background()
+    res, err := s.Schedules.GetTasks(ctx, operations.GetScheduleTasksRequest{
         ScheduleID: "0faaa235-2c59-4559-87af-f1a3a2fa9467",
-    }
-
-    res, err := s.Schedules.GetTasks(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -243,8 +235,8 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.UpdateScheduleRequest{
+    ctx := context.Background()
+    res, err := s.Schedules.Update(ctx, operations.UpdateScheduleRequest{
         ScheduleInput: shared.ScheduleInput{
             Cron: mergent.String("molestiae"),
             Description: mergent.String("velit"),
@@ -265,9 +257,7 @@ func main() {
             Rrule: mergent.String("temporibus"),
         },
         ScheduleID: "a1ffe78f-097b-4007-8f15-471b5e6e13b9",
-    }
-
-    res, err := s.Schedules.Update(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }

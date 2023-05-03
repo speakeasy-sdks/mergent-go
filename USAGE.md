@@ -17,8 +17,8 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := shared.TaskNewInput{
+    ctx := context.Background()
+    res, err := s.Tasks.Create(ctx, shared.TaskNewInput{
         Delay: mergent.String("60s"),
         Name: mergent.String("mytask"),
         Queue: mergent.String("process1"),
@@ -32,9 +32,7 @@ func main() {
             URL: "http://example.com",
         },
         ScheduledFor: types.MustTimeFromString("2021-10-01T15:53:05Z"),
-    }
-
-    res, err := s.Tasks.Create(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }

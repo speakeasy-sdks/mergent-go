@@ -45,8 +45,8 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := []shared.TaskNewInput{
+    ctx := context.Background()
+    res, err := s.Tasks.BatchCreate(ctx, []shared.TaskNewInput{
         shared.TaskNewInput{
             Delay: mergent.String("60s"),
             Name: mergent.String("mytask"),
@@ -95,9 +95,7 @@ func main() {
             },
             ScheduledFor: types.MustTimeFromString("2021-10-01T15:53:05Z"),
         },
-    }
-
-    res, err := s.Tasks.BatchCreate(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -136,15 +134,13 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := []string{
+    ctx := context.Background()
+    res, err := s.Tasks.BatchDelete(ctx, []string{
         "502a94bb-4f63-4c96-9e9a-3efa77dfb14c",
         "d66ae395-efb9-4ba8-8f3a-66997074ba44",
         "69b6e214-1959-4890-afa5-63e2516fe4c8",
         "b711e5b7-fd2e-4d02-8921-cddc692601fb",
-    }
-
-    res, err := s.Tasks.BatchDelete(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -179,8 +175,8 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := shared.TaskNewInput{
+    ctx := context.Background()
+    res, err := s.Tasks.Create(ctx, shared.TaskNewInput{
         Delay: mergent.String("60s"),
         Name: mergent.String("mytask"),
         Queue: mergent.String("process1"),
@@ -193,9 +189,7 @@ func main() {
             URL: "http://example.com",
         },
         ScheduledFor: types.MustTimeFromString("2021-10-01T15:53:05Z"),
-    }
-
-    res, err := s.Tasks.Create(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -229,12 +223,10 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.DeleteTaskRequest{
+    ctx := context.Background()
+    res, err := s.Tasks.Delete(ctx, operations.DeleteTaskRequest{
         TaskID: "d5f0d30c-5fbb-4258-b053-202c73d5fe9b",
-    }
-
-    res, err := s.Tasks.Delete(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -268,12 +260,10 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.GetTaskRequest{
+    ctx := context.Background()
+    res, err := s.Tasks.Get(ctx, operations.GetTaskRequest{
         TaskID: "90c28909-b3fe-449a-8d9c-bf48633323f9",
-    }
-
-    res, err := s.Tasks.Get(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -341,12 +331,10 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.RunTaskRequest{
+    ctx := context.Background()
+    res, err := s.Tasks.Run(ctx, operations.RunTaskRequest{
         TaskID: "b77f3a41-0067-44eb-b692-80d1ba77a89e",
-    }
-
-    res, err := s.Tasks.Run(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
@@ -382,8 +370,8 @@ func main() {
         }),
     )
 
-    ctx := context.Background()    
-    req := operations.UpdateTaskRequest{
+    ctx := context.Background()
+    res, err := s.Tasks.Update(ctx, operations.UpdateTaskRequest{
         TaskInput: shared.TaskInput{
             Delay: mergent.String("60s"),
             Name: mergent.String("mytask"),
@@ -400,9 +388,7 @@ func main() {
             ScheduledFor: types.MustTimeFromString("2021-10-01T15:53:05Z"),
         },
         TaskID: "4203ce5e-6a95-4d8a-8d44-6ce2af7a73cf",
-    }
-
-    res, err := s.Tasks.Update(ctx, req)
+    })
     if err != nil {
         log.Fatal(err)
     }
