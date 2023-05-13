@@ -34,7 +34,6 @@ func newSchedules(defaultClient, securityClient HTTPClient, serverURL, language,
 }
 
 // Create - Create Schedule
-
 func (s *schedules) Create(ctx context.Context, request shared.ScheduleNewInput) (*operations.CreateScheduleResponse, error) {
 	baseURL := s.serverURL
 	url := strings.TrimSuffix(baseURL, "/") + "/schedules"
@@ -99,7 +98,6 @@ func (s *schedules) Create(ctx context.Context, request shared.ScheduleNewInput)
 }
 
 // Delete - Delete Schedule
-
 func (s *schedules) Delete(ctx context.Context, request operations.DeleteScheduleRequest) (*operations.DeleteScheduleResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/schedules/{schedule_id}", request, nil)
@@ -148,7 +146,6 @@ func (s *schedules) Delete(ctx context.Context, request operations.DeleteSchedul
 }
 
 // Get - Get Schedule
-
 func (s *schedules) Get(ctx context.Context, request operations.GetScheduleRequest) (*operations.GetScheduleResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/schedules/{schedule_id}", request, nil)
@@ -206,7 +203,6 @@ func (s *schedules) Get(ctx context.Context, request operations.GetScheduleReque
 }
 
 // GetTasks - Get Schedule Tasks
-
 func (s *schedules) GetTasks(ctx context.Context, request operations.GetScheduleTasksRequest) (*operations.GetScheduleTasksResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/schedules/{schedule_id}/tasks", request, nil)
@@ -264,7 +260,6 @@ func (s *schedules) GetTasks(ctx context.Context, request operations.GetSchedule
 }
 
 // List - Get Schedules
-
 func (s *schedules) List(ctx context.Context) (*operations.ListSchedulesResponse, error) {
 	baseURL := s.serverURL
 	url := strings.TrimSuffix(baseURL, "/") + "/schedules"
@@ -309,7 +304,6 @@ func (s *schedules) List(ctx context.Context) (*operations.ListSchedulesResponse
 }
 
 // Update - Update Schedule
-
 func (s *schedules) Update(ctx context.Context, request operations.UpdateScheduleRequest) (*operations.UpdateScheduleResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/schedules/{schedule_id}", request, nil)

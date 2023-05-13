@@ -40,8 +40,6 @@ func newTasks(defaultClient, securityClient HTTPClient, serverURL, language, sdk
 // Tasks; there is no partial success.
 //
 // This endpoint is in beta and may change at any time without notice.
-//
-
 func (s *tasks) BatchCreate(ctx context.Context, request []shared.TaskNewInput) (*operations.BatchCreateTasksResponse, error) {
 	baseURL := s.serverURL
 	url := strings.TrimSuffix(baseURL, "/") + "/tasks/batch-create"
@@ -118,8 +116,6 @@ func (s *tasks) BatchCreate(ctx context.Context, request []shared.TaskNewInput) 
 // Tasks; there is no partial success.
 //
 // This endpoint is in beta and may change at any time without notice.
-//
-
 func (s *tasks) BatchDelete(ctx context.Context, request []string) (*operations.BatchDeleteTasksResponse, error) {
 	baseURL := s.serverURL
 	url := strings.TrimSuffix(baseURL, "/") + "/tasks/batch-delete"
@@ -177,7 +173,6 @@ func (s *tasks) BatchDelete(ctx context.Context, request []string) (*operations.
 }
 
 // Create - Create Task
-
 func (s *tasks) Create(ctx context.Context, request shared.TaskNewInput) (*operations.CreateTaskResponse, error) {
 	baseURL := s.serverURL
 	url := strings.TrimSuffix(baseURL, "/") + "/tasks"
@@ -244,7 +239,6 @@ func (s *tasks) Create(ctx context.Context, request shared.TaskNewInput) (*opera
 }
 
 // Delete - Delete Task
-
 func (s *tasks) Delete(ctx context.Context, request operations.DeleteTaskRequest) (*operations.DeleteTaskResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/tasks/{task_id}", request, nil)
@@ -293,7 +287,6 @@ func (s *tasks) Delete(ctx context.Context, request operations.DeleteTaskRequest
 }
 
 // Get - Get Task
-
 func (s *tasks) Get(ctx context.Context, request operations.GetTaskRequest) (*operations.GetTaskResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/tasks/{task_id}", request, nil)
@@ -351,7 +344,6 @@ func (s *tasks) Get(ctx context.Context, request operations.GetTaskRequest) (*op
 }
 
 // List - Get Tasks
-
 func (s *tasks) List(ctx context.Context) (*operations.ListTasksResponse, error) {
 	baseURL := s.serverURL
 	url := strings.TrimSuffix(baseURL, "/") + "/tasks"
@@ -407,7 +399,6 @@ func (s *tasks) List(ctx context.Context) (*operations.ListTasksResponse, error)
 
 // Run - Run Task
 // Reschedules a queued Task to be run immediately.
-
 func (s *tasks) Run(ctx context.Context, request operations.RunTaskRequest) (*operations.RunTaskResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/tasks/{task_id}/run", request, nil)
@@ -467,7 +458,6 @@ func (s *tasks) Run(ctx context.Context, request operations.RunTaskRequest) (*op
 }
 
 // Update - Update Task
-
 func (s *tasks) Update(ctx context.Context, request operations.UpdateTaskRequest) (*operations.UpdateTaskResponse, error) {
 	baseURL := s.serverURL
 	url, err := utils.GenerateURL(ctx, baseURL, "/tasks/{task_id}", request, nil)
