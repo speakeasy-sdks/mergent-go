@@ -1,6 +1,7 @@
 schedules.go
 tasks.go
 mergent.go
+.gitignore
 go.mod
 go.sum
 pkg/types/bigint.go

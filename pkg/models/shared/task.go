@@ -34,21 +34,21 @@ type TaskInput struct {
 	ScheduledFor *time.Time `json:"scheduled_for,omitempty"`
 }
 
-// TaskStatusEnum - The status of this Task.
-type TaskStatusEnum string
+// TaskStatus - The status of this Task.
+type TaskStatus string
 
 const (
-	TaskStatusEnumQueued  TaskStatusEnum = "queued"
-	TaskStatusEnumWorking TaskStatusEnum = "working"
-	TaskStatusEnumSuccess TaskStatusEnum = "success"
-	TaskStatusEnumFailure TaskStatusEnum = "failure"
+	TaskStatusQueued  TaskStatus = "queued"
+	TaskStatusWorking TaskStatus = "working"
+	TaskStatusSuccess TaskStatus = "success"
+	TaskStatusFailure TaskStatus = "failure"
 )
 
-func (e TaskStatusEnum) ToPointer() *TaskStatusEnum {
+func (e TaskStatus) ToPointer() *TaskStatus {
 	return &e
 }
 
-func (e *TaskStatusEnum) UnmarshalJSON(data []byte) error {
+func (e *TaskStatus) UnmarshalJSON(data []byte) error {
 	var v string
 	if err := json.Unmarshal(data, &v); err != nil {
 		return err
@@ -61,10 +61,10 @@ func (e *TaskStatusEnum) UnmarshalJSON(data []byte) error {
 	case "success":
 		fallthrough
 	case "failure":
-		*e = TaskStatusEnum(v)
+		*e = TaskStatus(v)
 		return nil
 	default:
-		return fmt.Errorf("invalid value for TaskStatusEnum: %v", v)
+		return fmt.Errorf("invalid value for TaskStatus: %v", v)
 	}
 }
 
@@ -91,5 +91,5 @@ type TaskOutput struct {
 	//
 	ScheduledFor *time.Time `json:"scheduled_for,omitempty"`
 	// The status of this Task.
-	Status *TaskStatusEnum `json:"status,omitempty"`
+	Status *TaskStatus `json:"status,omitempty"`
 }
