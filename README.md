@@ -35,7 +35,7 @@ import(
 func main() {
     s := mergent.New(
         mergent.WithSecurity(shared.Security{
-            APIKey: "YOUR_BEARER_TOKEN_HERE",
+            APIKey: "",
         }),
     )
 
