@@ -24,11 +24,7 @@ func main() {
         Queue: mergent.String("process1"),
         Request: shared.Request{
             Body: mergent.String("Body String"),
-            Headers: map[string]interface{}{
-                "provident": "distinctio",
-                "quibusdam": "unde",
-                "nulla": "corrupti",
-            },
+            Headers: &shared.RequestHeaders{},
             URL: "http://example.com",
         },
         ScheduledFor: types.MustTimeFromString("2021-10-01T15:53:05Z"),

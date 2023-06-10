@@ -120,8 +120,8 @@ func New(opts ...SDKOption) *Mergent {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "v2",
-			SDKVersion:        "0.7.0",
-			GenVersion:        "2.37.0",
+			SDKVersion:        "0.8.0",
+			GenVersion:        "2.39.0",
 		},
 	}
 	for _, opt := range opts {

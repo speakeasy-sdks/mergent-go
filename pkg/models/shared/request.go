@@ -2,6 +2,12 @@
 
 package shared
 
+// RequestHeaders - The headers that will accompany any Task's HTTP request. For
+// example, you can use this to set Content-Type to "application/json"
+// or "application/octet-stream".
+type RequestHeaders struct {
+}
+
 type Request struct {
 	// The HTTP request body as a string.
 	Body *string `json:"body,omitempty"`
@@ -9,7 +15,7 @@ type Request struct {
 	// example, you can use this to set Content-Type to "application/json"
 	// or "application/octet-stream".
 	//
-	Headers map[string]interface{} `json:"headers,omitempty"`
+	Headers *RequestHeaders `json:"headers,omitempty"`
 	// The URL that the POST request will be sent to.
 	//
 	// For localhost development, use something like ngrok to get a publicly
